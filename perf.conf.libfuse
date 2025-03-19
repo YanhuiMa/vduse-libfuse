@@ -1,0 +1,8 @@
+[qcow2.virtio_scsi.*.x86_64]
+result_file_pattern = .*.RHS
+ignore_col = 3
+avg_update = 6,3,5
+important_level = 6
+increase_good = 3,4,6
+p_value_threshold = 0.05
+desc = The tests are %s seconds sessions of 'fio'. 'throughput' was taken from fio's report.\nOther measurements were taken on the host.\nHow to read the results:\n - The Throughput is measured in MByte/sec.\n - io_exit: io exits of KVM.
