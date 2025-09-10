@@ -1,0 +1,19 @@
+cd /home/kar/
+screen python3 ConfigTest.py --testcase=fio_perf.single_disk.file_system_block.localfs --guestname=RHEL.9.6.0 --clone=no --nrepeat=4 --machines=q35 --driveformat=virtio_scsi --imageformat=qcow2
+
+the fio scripts
+# pwd
+/root/avocado/data/avocado-vt/virttest/test-providers.d/downloads/io-github-autotest-qemu/qemu/tests
+ vim cfg/fio_perf.cfg 
+ vim fio_perf.py 
+
+
+sed -i 's/|$//' */fio_result.RHS
+
+ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa root@10.73.148.144
+
+scp -r -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa vduse+libfuse/ root@10.73.148.144:/usr/local/autotest/results
+
+cd /usr/local/autotest/client/tools/
+
+python regression.new.libfuse.py qcow2.virtio_scsi.*.x86_64 file /usr/local/autotest/results/vanilla+libfuse/ /usr/local/autotest/results/vduse+libfuse/
